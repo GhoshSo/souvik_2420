@@ -25,6 +25,10 @@ view: orders {
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
+  measure: new_sum1 {
+    type: sum
+    sql: ${id} ;;
+  }
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
