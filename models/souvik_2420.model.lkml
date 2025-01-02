@@ -30,7 +30,7 @@ explore: order_items {
 
   join: orders {
     type: left_outer
-    fields: [ orders.user_id, orders.new_sum1, orders.total_amount_redeemed_us]
+    #fields: [ orders.user_id, orders.new_sum1, orders.total_amount_redeemed_us]
     sql_on: ${order_items.order_id} = ${orders.id} ;;
     relationship: many_to_one
   }
