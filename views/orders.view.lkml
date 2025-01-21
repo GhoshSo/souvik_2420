@@ -31,6 +31,7 @@ view: orders {
   }
   dimension: idinf {
     type: number
+    value_format_name: id
     sql: 4611686018473736428 ;;
   }
   measure: count {
