@@ -29,6 +29,10 @@ view: orders {
     type: sum
     sql: ${id} ;;
   }
+  dimension: idinf {
+    type: number
+    sql: 4611686018473736428 ;;
+  }
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
