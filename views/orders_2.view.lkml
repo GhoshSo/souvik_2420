@@ -1,7 +1,8 @@
 include: "/views/orders.view.lkml"
 
-view: +orders {
+view: orders_2 {
 
+  extends: [orders]
 
   dimension: id2 {
     #primary_key: yes
