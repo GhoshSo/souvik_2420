@@ -29,6 +29,21 @@ view: orders {
     type: sum
     sql: ${id} ;;
   }
+
+  dimension: dc2_unique_key {
+    type: string
+    sql: CONCAT(${TABLE}.status, CAST(${TABLE}.id AS string)) ;;
+  }
+
+  measure: sum_iu {
+    type: sum_distinct
+    view_label: "Volume"
+    label: "  IU"
+    description: "Total International Unit Weight Quantity"
+    sql_distinct_key: ${dc2_unique_key} ;;
+    sql: cast(${TABLE}.user_id AS decimal(28,2));;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
