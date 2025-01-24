@@ -37,7 +37,7 @@ view: orders {
     description: "Total Kilogram Weight Quantity"
     sql_distinct_key: ${traffic_source} ;;
     sql: cast(${TABLE}.user_id AS decimal(28,10));;
-    precision:0
+    precision:10
   }
 
   measure: sum_iu {
