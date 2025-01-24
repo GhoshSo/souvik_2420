@@ -30,8 +30,24 @@ view: orders {
     sql: ${id} ;;
   }
 
+  measure: sum_kg {
+    type: sum_distinct
+    view_label: "Volume"
+    label: "   KG"
+    description: "Total Kilogram Weight Quantity"
+    sql_distinct_key: ${traffic_source} ;;
+    sql: cast(${TABLE}.user_id AS decimal(28,10));;
+    precision:0
+  }
 
-
+  measure: sum_iu {
+    type: sum_distinct
+    view_label: "Volume"
+    label: "  IU"
+    description: "Total International Unit Weight Quantity"
+    sql_distinct_key: ${traffic_source} ;;
+    sql: cast(${TABLE}.user_id AS decimal(28,2));;
+  }
 
   measure: count {
     type: count
