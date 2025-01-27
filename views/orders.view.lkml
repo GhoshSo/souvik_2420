@@ -37,6 +37,13 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
+
+  }
+
+  measure: percentage_show {
+    type: number
+    sql: ${id}/SUM(id) ;;
+    value_format: "0.00%"
   }
   measure: total_amount_redeemed_us {
     #label: "Total Redeemed Amount [US]"
