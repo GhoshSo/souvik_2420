@@ -1,4 +1,4 @@
-connection: "thelook_opm"
+connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view.lkml"
