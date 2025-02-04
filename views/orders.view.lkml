@@ -40,6 +40,29 @@ view: orders {
 
   }
 
+  parameter: status_or_traffic {
+    type: string
+    allowed_value: {
+      label: "TRAFFIC"
+      value: "traffic"
+    }
+    allowed_value: {
+      label: "STATUS"
+      value: "status"
+
+    }
+    default_value: "STATUS"
+  }
+
+  dimension: user_name {
+    type: string
+    sql:CONCAT(${users.first_name}, " ", {% parameter status_or_traffic %}) ;;
+  }
+
+  # dimension: dyn_di {
+
+  # }
+
   measure: percentage_show {
     type: number
     sql: ${id}/SUM(id) ;;
