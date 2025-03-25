@@ -40,6 +40,11 @@ view: orders {
 
   }
 
+  dimension: tab_nam {
+    type: string
+    sql: (SELECT first_name FROM ${users.SQL_TABLE_NAME}) ;;
+  }
+
   parameter: status_or_traffic {
     type: string
     allowed_value: {
