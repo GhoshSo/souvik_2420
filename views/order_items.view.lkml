@@ -38,26 +38,27 @@ view: order_items {
     drill_fields: [id, inventory_items.id, orders.id]
   }
 
-  dimension: cre_date {
-    type: date
-    sql: ${created_date} ;;
-    html:
-    {% if _user_attributes['beamer_crypto'] == 'Yes' %}
-    {{ rendered_value | date: "%d-%^b-%Y" }}
+  # dimension: cre_date {
+  #   type: date
+  #   sql: ${created_date} ;;
+  #   html:
+  #   {% if _user_attributes['beamer_crypto'] == 'Yes' %}
+  #   {{ rendered_value | date: "%d-%^b-%Y" }}
 
-    {% else %}
-    {{ rendered_value | date: "%d-%^b-%Y " }}
-    {% endif %};;
-  }
+  #   {% else %}
+  #   {{ rendered_value | date: "%d-%^b-%Y " }}
+  #   {% endif %};;
+  # }
+
   dimension: ret_date {
     type: date
     sql: ${returned_date} ;;
-    html:
-    {% if _user_attributes['beamer_crypto'] == 'Yes' %}
-    {{ rendered_value | date: "%d-%^b-%Y" }}
+    # html:
+    # {% if _user_attributes['beamer_crypto'] == 'Yes' %}
+    # {{ rendered_value | date: "%d-%^b-%Y" }}
 
-    {% else %}
-    {{ rendered_value | date: "%d-%^b-%Y " }}
-    {% endif %};;
+    # {% else %}
+    # {{ rendered_value | date: "%d-%^b-%Y " }}
+    # {% endif %};;
   }
 }
