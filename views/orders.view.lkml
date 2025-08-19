@@ -14,6 +14,7 @@ view: orders {
   }
   dimension: status {
     type: string
+    map_layer_name: my_neighborhood_layer
     sql: ${TABLE}.status ;;
   }
   dimension: traffic_source {

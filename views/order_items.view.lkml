@@ -38,26 +38,44 @@ view: order_items {
     drill_fields: [id, inventory_items.id, orders.id]
   }
 
-  dimension: cre_date {
+  filter: timeframe_current {
     type: date
-    sql: ${created_date} ;;
-    html:
-    {% if _user_attributes['beamer_crypto'] == 'Yes' %}
-    {{ rendered_value | date: "%d-%^b-%Y" }}
-
-    {% else %}
-    {{ rendered_value | date: "%d-%^b-%Y " }}
-    {% endif %};;
   }
-  dimension: ret_date {
-    type: date
-    sql: ${returned_date} ;;
-    html:
-    {% if _user_attributes['beamer_crypto'] == 'Yes' %}
-    {{ rendered_value | date: "%d-%^b-%Y" }}
 
-    {% else %}
-    {{ rendered_value | date: "%d-%^b-%Y " }}
-    {% endif %};;
+  filter: timeframe_previous {
+    type: date
+  }
+
+  dimension: period_start_current {
+    type: date_time
+    sql: {% date_start timeframe_current %};;
+  }
+
+  dimension: period_end_current {
+    type: date_time
+    sql: {% date_end timeframe_current %};;
   }
 }
+#   dimension: cre_date {
+#     type: date
+#     sql: ${created_date} ;;
+#     html:
+#     {% if _user_attributes['beamer_crypto'] == 'Yes' %}
+#     {{ rendered_value | date: "%d-%^b-%Y" }}
+
+#     {% else %}
+#     {{ rendered_value | date: "%d-%^b-%Y " }}
+#     {% endif %};;
+#   }
+#   dimension: ret_date {
+#     type: date
+#     sql: ${returned_date} ;;
+#     html:
+#     {% if _user_attributes['beamer_crypto'] == 'Yes' %}
+#     {{ rendered_value | date: "%d-%^b-%Y" }}
+
+#     {% else %}
+#     {{ rendered_value | date: "%d-%^b-%Y " }}
+#     {% endif %};;
+#   }
+# }
